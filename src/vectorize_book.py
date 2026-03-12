@@ -16,7 +16,11 @@ data_dir = os.path.join(parent_dir, "data")
 vector_db_dir = os.path.join(parent_dir, "vector_db")
 chapters_vector_db_dir = os.path.join(parent_dir, "chapters_vector_db")
 
-embedding = HuggingFaceEmbeddings(model_kwargs={"device": DEVICE}) # Use device from env
+embedding = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2",
+    model_kwargs={"device": DEVICE},
+    encode_kwargs={"normalize_embeddings": True}
+)
 text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=500)
 
 
