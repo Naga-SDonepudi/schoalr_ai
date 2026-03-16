@@ -1,1 +1,1 @@
-# schoalr_ai
+# scholar_ai
